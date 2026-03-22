@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#005ab7",
+              "on-tertiary-container": "#fffbff",
+              "error-container": "#ffdad6",
+              "secondary": "#565e74",
+              "on-background": "#191c1e",
+              "inverse-primary": "#abc7ff",
+              "surface-container-low": "#f2f4f6",
+              "on-primary-fixed": "#001b3f",
+              "inverse-surface": "#2d3133",
+              "primary-container": "#0072e5",
+              "on-error-container": "#93000a",
+              "primary-fixed": "#d7e2ff",
+              "on-tertiary-fixed-variant": "#7a2f00",
+              "on-primary-fixed-variant": "#004590",
+              "error": "#ba1a1a",
+              "on-primary-container": "#fefcff",
+              "on-secondary": "#ffffff",
+              "tertiary-container": "#c45100",
+              "on-tertiary": "#ffffff",
+              "surface-variant": "#e0e3e5",
+              "on-error": "#ffffff",
+              "inverse-on-surface": "#eff1f3",
+              "background": "#f7f9fb",
+              "outline-variant": "#c1c6d7",
+              "surface-bright": "#f7f9fb",
+              "surface-tint": "#005cbc",
+              "surface-dim": "#d8dadc",
+              "tertiary": "#9d3f00",
+              "on-secondary-container": "#5c647a",
+              "secondary-fixed-dim": "#bec6e0",
+              "on-surface-variant": "#414754",
+              "outline": "#717786",
+              "primary-fixed-dim": "#abc7ff",
+              "surface-container-high": "#e6e8ea",
+              "surface-container": "#eceef0",
+              "surface": "#f7f9fb",
+              "secondary-fixed": "#dae2fd",
+              "secondary-container": "#dae2fd",
+              "on-secondary-fixed-variant": "#3f465c",
+              "on-primary": "#ffffff",
+              "tertiary-fixed-dim": "#ffb693",
+              "on-secondary-fixed": "#131b2e",
+              "surface-container-highest": "#e0e3e5",
+              "on-surface": "#191c1e",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-fixed": "#ffdbcc",
+              "on-tertiary-fixed": "#351000"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .scrolling-text {
+            display: flex;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .scrolling-content {
+            display: flex;
+            animation: scroll 30s linear infinite;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-background antialiased">
+<!-- Top Ticker Bar -->
+<div class="bg-primary text-on-primary py-2 px-4 overflow-hidden">
+<div class="scrolling-text max-w-7xl mx-auto flex items-center">
+<span class="font-bold text-xs uppercase tracking-widest mr-8 shrink-0">Los más vendidos</span>
+<div class="scrolling-content gap-12 text-sm font-medium opacity-90">
+<span>Sommier Platinum Pro</span>
+<span>Colchón Ortho-Density 500</span>
+<span>Almohada Visco Gel Premium</span>
+<span>Respaldo Minimalist Velvet</span>
+<span>Sommier Platinum Pro</span>
+<span>Colchón Ortho-Density 500</span>
+<span>Almohada Visco Gel Premium</span>
+<span>Respaldo Minimalist Velvet</span>
+</div>
+</div>
+</div>
+<!-- TopAppBar Component -->
+<nav class="bg-[#2d3133] text-sm tracking-wide font-['Inter'] antialiased docked full-width top-0 z-50 bg-opacity-80 backdrop-blur-xl border-b border-white/10 shadow-2xl flex justify-between items-center px-8 py-4 max-w-full sticky">
+<div class="flex items-center gap-12">
+<span class="text-2xl font-bold tracking-tighter text-white">Friends Hogar</span>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-[#007FFF] font-semibold border-b-2 border-[#007FFF] pb-1 transition-all duration-300" href="#">Colchones</a>
+<a class="text-gray-300 hover:text-white transition-colors hover:scale-105 transition-transform duration-200" href="#">Sommiers</a>
+<a class="text-gray-300 hover:text-white transition-colors hover:scale-105 transition-transform duration-200" href="#">Almohadas</a>
+<a class="text-gray-300 hover:text-white transition-colors hover:scale-105 transition-transform duration-200" href="#">Muebles</a>
+<a class="text-gray-300 hover:text-white transition-colors hover:scale-105 transition-transform duration-200" href="#">Ofertas</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden lg:block">
+<input class="bg-white/10 border-none rounded-full px-6 py-2 text-white text-sm focus:ring-1 focus:ring-primary w-64 placeholder:text-gray-400" placeholder="Buscar productos..." type="text"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+</div>
+<div class="flex items-center gap-4 text-white">
+<button class="hover:scale-110 transition-transform duration-200"><span class="material-symbols-outlined">shopping_cart</span></button>
+<button class="hover:scale-110 transition-transform duration-200"><span class="material-symbols-outlined">person</span></button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative h-[870px] w-full flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="Minimalist high-end master bedroom with blue accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDh6lGk8bkxdRylnRuTjl3AO5zj1DGoSBsYk2Zj9CZB6JSpEleG_KVeU6gC2bUUm-t6We5tj3nRTKhu4gOWOXR0arBeR8WhP_vDT4R2Re8refwWQCEU4R8jpfRZlmxtLMOVG_UK9ggnFZO3TlIXtKbGM7zjGlB3D4mo5aTTUcbTgFtpVV5fkGDbu_UwDl2J9itDHje3Nm4U4Wf1TLmrA8i7tt-4rmUwlJtbXPqLjDzA-SZ2_HyB1ZDxXTyCrcBK5zMIiUmvcGht2M80"/>
+<div class="absolute inset-0 bg-gradient-to-r from-inverse-surface/60 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-8 w-full">
+<div class="max-w-2xl">
+<span class="text-primary-fixed-dim uppercase tracking-[0.3em] font-bold text-sm mb-4 block">Arquitectura del Descanso</span>
+<h1 class="text-white text-6xl md:text-8xl font-bold leading-[1.1] mb-8 tracking-tighter">Eleva tu<br/>Bienestar.</h1>
+<p class="text-gray-200 text-xl mb-10 max-w-lg font-light leading-relaxed">Descubre la precisión técnica y el confort editorial en nuestra nueva colección de temporada.</p>
+<div class="flex gap-4">
+<button class="bg-primary text-white px-10 py-5 rounded-xl font-bold text-lg hover:shadow-[0px_20px_40px_rgba(0,90,183,0.3)] hover:-translate-y-1 transition-all duration-300">Explorar Colección</button>
+<button class="bg-white/10 backdrop-blur-md text-white border border-white/20 px-10 py-5 rounded-xl font-bold text-lg hover:bg-white/20 transition-all duration-300">Ver Catálogo</button>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="max-w-7xl mx-auto px-8 py-24">
+<!-- Section Header -->
+<div class="flex justify-between items-end mb-16">
+<div>
+<h2 class="text-4xl font-bold tracking-tight text-on-background">Destacados del Mes</h2>
+<p class="text-secondary mt-2">Tecnología de vanguardia para tu descanso diario.</p>
+</div>
+<a class="text-primary font-bold flex items-center gap-2 hover:gap-4 transition-all group" href="#">
+                Ver todos los productos <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<!-- Product Catalog Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Card 1 -->
+<div class="group bg-surface-container-lowest rounded-xl p-4 shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col relative">
+<div class="absolute top-6 right-6 z-10">
+<span class="bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">MÁS VENDIDO</span>
+</div>
+<div class="overflow-hidden rounded-lg mb-6 aspect-square bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="High-end Sommier Platinum Pro mattress detail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXzppmmD4i7SrnMFO56Wf8KchXQ3HLw_1U2meLN42CSElFhj3VyFhucgHDgLLQWTQemBAl0wt0adxSo_pA2SKkA8q9KyKk3HtA6G3zp7sorcM5W5jy3j4kGmoIupDvQchoTg_79rpFFdJgrJSHz8127shk10adRse-F1s4mFLYtJThv7G5N2mFk4rTuPD8dM4AOai5r78YQWqC1r1u0N_6EgXtfJ3KJwHbjLll5ij8PUdeu-g9LFOjfEgvFU8gq-cQPMQQX5rsmgu-"/>
+</div>
+<div class="px-2 flex-grow">
+<div class="flex gap-1 mb-2">
+<span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<h3 class="text-lg font-bold text-on-background leading-tight mb-2">Sommier Platinum Pro</h3>
+<!-- Specs -->
+<div class="space-y-2 mb-4">
+<div class="flex items-center gap-2 text-xs text-secondary">
+<span class="material-symbols-outlined text-primary text-lg">weight</span>
+<span>Soporta hasta 140kg</span>
+</div>
+<div class="flex items-center gap-2 text-xs text-secondary">
+<span class="material-symbols-outlined text-primary text-lg">grid_view</span>
+<span>Resortes Pocket</span>
+</div>
+</div>
+<div class="mt-auto">
+<p class="text-2xl font-black text-primary">$185.500</p>
+<div class="flex items-center gap-2 mt-1">
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-[10px] font-bold text-secondary">MAYORISTA: $142.000</span>
+</div>
+</div>
+</div>
+<button class="mt-6 w-full bg-surface-container-high text-on-surface py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-primary hover:text-white transition-colors group/btn">
+<span class="material-symbols-outlined">shopping_cart</span>
+                    Añadir al Carrito
+                </button>
+</div>
+<!-- Card 2 -->
+<div class="group bg-surface-container-lowest rounded-xl p-4 shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col relative">
+<div class="absolute top-6 right-6 z-10">
+<span class="bg-tertiary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">ENVÍO GRATIS</span>
+</div>
+<div class="overflow-hidden rounded-lg mb-6 aspect-square bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Ortho-Density 500 orthopedic mattress white texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVvxQq_9cfp7mP06m0WcOEuFDHlTYhuZMCuHS5G1WUYMZq6LZVjNIBA-AgOcf4rmimRcOHArQYTA_4aQOJtC2BbQqPQjYjl4dsg2BAnO0LF3cIZnQJ-b92JfSu1mBheGyjbWklpoGyUN0ZtViGWd-eGmFLaxujpdwSyUdlbnkOkTEOmnX-BGgEN3on7Hf5AC6uHo6PEsI1qyK0HfdrAVKu-kkoPZJGSsSUwpKFlvLGTTON_-rX2vZkMvSMNRDA7O4EEeU6M38d8WJm"/>
+</div>
+<div class="px-2 flex-grow">
+<div class="flex gap-1 mb-2">
+<span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-gray-300 text-sm">star</span>
+</div>
+<h3 class="text-lg font-bold text-on-background leading-tight mb-2">Colchón Ortho-Density 500</h3>
+<div class="space-y-2 mb-4">
+<div class="flex items-center gap-2 text-xs text-secondary">
+<span class="material-symbols-outlined text-primary text-lg">weight</span>
+<span>Soporta hasta 120kg</span>
+</div>
+<div class="flex items-center gap-2 text-xs text-secondary">
+<span class="material-symbols-outlined text-primary text-lg">layers</span>
+<span>Espuma Alta Densidad</span>
+</div>
+</div>
+<div class="mt-auto">
+<p class="text-2xl font-black text-primary">$124.900</p>
+<div class="flex items-center gap-2 mt-1">
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-[10px] font-bold text-secondary">MAYORISTA: $98.400</span>
+</div>
+</div>
+</div>
+<button class="mt-6 w-full bg-surface-container-high text-on-surface py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-primary hover:text-white transition-colors group/btn">
+<span class="material-symbols-outlined">shopping_cart</span>
+                    Añadir al Carrito
+                </button>
+</div>
+<!-- Card 3 -->
+<div class="group bg-surface-container-lowest rounded-xl p-4 shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col relative">
+<div class="overflow-hidden rounded-lg mb-6 aspect-square bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Velvet headboard in elegant master bedroom" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLb8OW087FFYTUrmClW9Te69L9kZ1PMco1bd-SGIvpR3DkYaqPr_7vLVAhu7_tdyes4KOaN3tDyM7Zxl-5bZtSaN6Mga9Ow8l2l_4g83sY1HPPt4qPJNyitW78DttGmF2nJ3hlpK9YKTGnQC92qAeNV-iX6H01FiLhaJv2gu_xOzTFY9wJQVIB_IzGvLD37ygi9s8DJb8pfyXvTHZN9HTSM_1WgSe2RWz1n7TP9qy70-5krcgomYGpIPayMux3fIjDuO4NqD4bdc4I"/>
+</div>
+<div class="px-2 flex-grow">
+<div class="flex gap-1 mb-2">
+<span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<h3 class="text-lg font-bold text-on-background leading-tight mb-2">Respaldo Minimalist Velvet</h3>
+<div class="space-y-2 mb-4">
+<div class="flex items-center gap-2 text-xs text-secondary">
+<span class="material-symbols-outlined text-primary text-lg">straighten</span>
+<span>Ancho: 1.60m - 2.00m</span>
+</div>
+<div class="flex items-center gap-2 text-xs text-secondary">
+<span class="material-symbols-outlined text-primary text-lg">texture</span>
+<span>Terciopelo Premium</span>
+</div>
+</div>
+<div class="mt-auto">
+<p class="text-2xl font-black text-primary">$68.200</p>
+<div class="flex items-center gap-2 mt-1">
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-[10px] font-bold text-secondary">MAYORISTA: $51.000</span>
+</div>
+</div>
+</div>
+<button class="mt-6 w-full bg-surface-container-high text-on-surface py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-primary hover:text-white transition-colors group/btn">
+<span class="material-symbols-outlined">shopping_cart</span>
+                    Añadir al Carrito
+                </button>
+</div>
+<!-- Card 4 -->
+<div class="group bg-surface-container-lowest rounded-xl p-4 shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col relative">
+<div class="absolute top-6 right-6 z-10">
+<span class="bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">HOT DEAL</span>
+</div>
+<div class="overflow-hidden rounded-lg mb-6 aspect-square bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Visco Gel memory foam pillow detail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnRCvxi9ycE9kwYgSrm7oP29abaQShjS8Dm8AOZXkix-WIyXgm7HeBD699Txt9c5VCKcTwYimrxc723ioha-7y9lTFNgIMsbQJnh4JqH-siLYG26UxPJQ8XekAZt6j_YVFejxX2rfUICF7I8I9e1IRCvEStLBFWaIemmqhYEHn8aboue4NuiW6ohtOeDm-9S3TISgXReJqjrf-DukJaWPv_WrOBMRMoCzmRl2uPUiRh9Qny7dHoddOE3p-G4QiRKwtUNBHYWEsPvtf"/>
+</div>
+<div class="px-2 flex-grow">
+<div class="flex gap-1 mb-2">
+<span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<h3 class="text-lg font-bold text-on-background leading-tight mb-2">Almohada Visco Gel</h3>
+<div class="space-y-2 mb-4">
+<div class="flex items-center gap-2 text-xs text-secondary">
+<span class="material-symbols-outlined text-primary text-lg">ac_unit</span>
+<span>Tecnología Cold-Gel</span>
+</div>
+<div class="flex items-center gap-2 text-xs text-secondary">
+<span class="material-symbols-outlined text-primary text-lg">medical_services</span>
+<span>Cervical Ergonómica</span>
+</div>
+</div>
+<div class="mt-auto">
+<p class="text-2xl font-black text-primary">$18.900</p>
+<div class="flex items-center gap-2 mt-1">
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-[10px] font-bold text-secondary">MAYORISTA: $14.200</span>
+</div>
+</div>
+</div>
+<button class="mt-6 w-full bg-surface-container-high text-on-surface py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-primary hover:text-white transition-colors group/btn">
+<span class="material-symbols-outlined">shopping_cart</span>
+                    Añadir al Carrito
+                </button>
+</div>
+</div>
+</main>
+<!-- Our History Section -->
+<section class="bg-inverse-surface py-24 text-white overflow-hidden">
+<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 items-center gap-20">
+<div class="relative">
+<div class="aspect-[4/5] rounded-xl overflow-hidden shadow-2xl">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="Black and white architectural furniture design detail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx92O0o3P1_9oCrxr3Cci0tFmOdAQosFWOorj0oQvVaBXx_zLLuMZz6jQV_skqeJK2KaZc2eoW4TVlEqNx02QuxpnUbWstQcNRnk1L0piopvAorqtZ2fPPFDBDcPVG9-E5ojNPFP05TdVcrMkIt7KOKC03ka2vlw3v9ohHsjbOOU152NbU5ebExVbVovm_jvzX5RwVvD8PunGba0kMJd8il8w37S7MwdrKxYJYLnL5culWoySsoT4rSBAAlqpV4y3rrdU5TK66xaez"/>
+</div>
+<div class="absolute -bottom-10 -right-10 w-64 h-64 bg-primary rounded-full blur-[100px] opacity-20"></div>
+</div>
+<div>
+<span class="text-primary tracking-widest uppercase font-bold text-sm mb-4 block">Desde 1998</span>
+<h2 class="text-5xl font-bold mb-8 tracking-tighter">Nuestra Historia</h2>
+<div class="space-y-6 text-gray-400 text-lg leading-relaxed">
+<p>En <span class="text-white font-bold">Friends Hogar</span>, creemos que el descanso no es un lujo, sino una arquitectura fundamental para la vida. Lo que comenzó como un pequeño taller familiar se ha transformado en el referente nacional de ingeniería aplicada al sueño.</p>
+<p>Nuestra misión es simple: fusionar el diseño editorial con la tecnología de materiales más avanzada del mundo, permitiendo que cada hogar acceda a una experiencia de hotel de cinco estrellas cada noche.</p>
+</div>
+<button class="mt-12 border-b-2 border-primary pb-2 font-bold hover:text-primary transition-colors">Conoce nuestra manufactura</button>
+</div>
+</div>
+</section>
+<!-- The Team Section -->
+<section class="py-24 bg-white">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center mb-20">
+<h2 class="text-4xl font-bold text-on-background tracking-tight">El Equipo</h2>
+<p class="text-secondary mt-4 max-w-xl mx-auto">Los arquitectos detrás de tu próximo descanso perfecto. Directores comprometidos con la excelencia operativa.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- Director 1 -->
+<div class="text-center group">
+<div class="w-48 h-48 mx-auto rounded-full overflow-hidden mb-6 shadow-xl ring-4 ring-surface-container-low group-hover:ring-primary transition-all duration-300">
+<img class="w-full h-full object-cover" data-alt="Portrait of the Director of Operations" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8TTntz0lRbB2wtqT_gSrSb8-zOxlXs7k5xoA_Grwow7H4ex0GFXVYPi5JZ5xQiVynCwv7PDnTh7TToWxPgEqp6sId0oQOiidnEoB-a9O8WxxpfMjg-7h1_Udjs0TfXKHXxIC19So1xEMXrQr1tjGHpHeUd6NOr81NacwBROCK-74y43_9-g9KG8VOJdo0qOAxQQMSuQ_nqmwdGpZN3keSCvJK-vcjwWebXGuE0e3YmmmTW6EyieGCSn4QJiIPxkeFqAqC3qkJSDnY"/>
+</div>
+<h4 class="text-xl font-bold text-on-background">Martin Gomez</h4>
+<p class="text-primary font-medium text-sm uppercase tracking-widest mt-1">Director Ejecutivo</p>
+</div>
+<!-- Director 2 -->
+<div class="text-center group">
+<div class="w-48 h-48 mx-auto rounded-full overflow-hidden mb-6 shadow-xl ring-4 ring-surface-container-low group-hover:ring-primary transition-all duration-300">
+<img class="w-full h-full object-cover" data-alt="Portrait of the Design Lead" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4eUA4UFF-g3VX9umNEBjBLCyPzgYN4raCGwWWvRJPAzvSc9aIRNQxOp6S0ob_d57atWZ5GIafss-_hqi8S4XdfVpG5cyejQWTNEoLoAAhst_GFmY1iGbHRiRJSR3_XIgJFPWNDtJul2x_QJC3Y31F1hyWTyO_wGzIVx-st6b5R4fmjJYFASdyXAYTCfL2LlqDmCo0NPzj5uK8Syad31tA23hXvv_Aj1cdFOIYtU2qs4NzHOtc6sYyh9J_Vee12Lr7rXTNBy1AXXHT"/>
+</div>
+<h4 class="text-xl font-bold text-on-background">Laura Rossini</h4>
+<p class="text-primary font-medium text-sm uppercase tracking-widest mt-1">Directora Creativa</p>
+</div>
+<!-- Director 3 -->
+<div class="text-center group">
+<div class="w-48 h-48 mx-auto rounded-full overflow-hidden mb-6 shadow-xl ring-4 ring-surface-container-low group-hover:ring-primary transition-all duration-300">
+<img class="w-full h-full object-cover" data-alt="Portrait of the Logistics Manager" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsIukpNQf-i_jV6yOK_QJXcEqQDqLEzDL_VH-ZDeWoNdl02-5Y0yW49DzZSp6D_CsL-EEJZ_pLJ_3mCm8-ONzEABNmkUooRP14i32Ra2xEhlr2pBWt-LnCntMmnStqM4NJ9xNjlIXoVYMmuy5pVav3zSTAsg2oHmJ-2s7iDgf1tPbg1Z9entXmvegysC5ukH2wPoKMBPD2WtYubcNzN4a1vg1cuqF5SAQW6nxUB1S3EJo-PJkFGQCkoOT-cz63B_jWKEMiS5Mcl3Hb"/>
+</div>
+<h4 class="text-xl font-bold text-on-background">Santiago Mendez</h4>
+<p class="text-primary font-medium text-sm uppercase tracking-widest mt-1">Logística y Expansión</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter Section -->
+<section class="py-24 px-8 bg-surface-container-low">
+<div class="max-w-4xl mx-auto bg-primary rounded-[2rem] p-12 md:p-20 text-center relative overflow-hidden shadow-2xl">
+<div class="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-white/10 rounded-full blur-[100px]"></div>
+<div class="relative z-10">
+<h2 class="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tighter">Únete a nuestra comunidad</h2>
+<p class="text-white/80 text-lg mb-12 max-w-xl mx-auto">Recibe acceso exclusivo a lanzamientos, preventas y consejos de expertos para mejorar tu higiene del sueño.</p>
+<form class="flex flex-col md:flex-row gap-4 max-w-lg mx-auto">
+<input class="flex-grow rounded-xl px-6 py-4 border-none focus:ring-2 focus:ring-white bg-white/20 text-white placeholder:text-white/60" placeholder="Tu correo electrónico" type="email"/>
+<button class="bg-white text-primary px-8 py-4 rounded-xl font-bold hover:bg-surface-container-lowest transition-colors" type="submit">Suscribirse</button>
+</form>
+</div>
+</div>
+</section>
+<!-- Footer Component -->
+<footer class="bg-[#f7f9fb] dark:bg-[#1a1c1e] w-full py-12 px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+<div class="space-y-6">
+<span class="text-lg font-black text-[#2d3133] dark:text-white uppercase">Friends Hogar</span>
+<p class="text-gray-500 text-sm leading-relaxed lowercase">Arquitectura del descanso para hogares modernos. Calidad superior certificada.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-secondary hover:text-primary cursor-pointer">share</span>
+<span class="material-symbols-outlined text-secondary hover:text-primary cursor-pointer">public</span>
+<span class="material-symbols-outlined text-secondary hover:text-primary cursor-pointer">mail</span>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-['Inter'] text-xs uppercase tracking-widest font-semibold text-[#005ab7]">Explorar</h4>
+<ul class="space-y-3">
+<li><a class="text-gray-500 hover:text-[#2d3133] dark:hover:text-white text-xs uppercase tracking-widest hover:translate-x-1 transition-transform duration-200 block" href="#">Nosotros</a></li>
+<li><a class="text-gray-500 hover:text-[#2d3133] dark:hover:text-white text-xs uppercase tracking-widest hover:translate-x-1 transition-transform duration-200 block" href="#">Contacto</a></li>
+<li><a class="text-gray-500 hover:text-[#2d3133] dark:hover:text-white text-xs uppercase tracking-widest hover:translate-x-1 transition-transform duration-200 block" href="#">Venta Mayorista</a></li>
+<li><a class="text-gray-500 hover:text-[#2d3133] dark:hover:text-white text-xs uppercase tracking-widest hover:translate-x-1 transition-transform duration-200 block" href="#">Términos y Condiciones</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-['Inter'] text-xs uppercase tracking-widest font-semibold text-[#005ab7]">Soporte</h4>
+<ul class="space-y-3">
+<li><a class="text-gray-500 hover:text-[#2d3133] dark:hover:text-white text-xs uppercase tracking-widest hover:translate-x-1 transition-transform duration-200 block" href="#">Preguntas Frecuentes</a></li>
+<li><a class="text-gray-500 hover:text-[#2d3133] dark:hover:text-white text-xs uppercase tracking-widest hover:translate-x-1 transition-transform duration-200 block" href="#">Envíos y Entregas</a></li>
+<li><a class="text-gray-500 hover:text-[#2d3133] dark:hover:text-white text-xs uppercase tracking-widest hover:translate-x-1 transition-transform duration-200 block" href="#">Garantía Platinum</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-['Inter'] text-xs uppercase tracking-widest font-semibold text-[#005ab7]">Ubicación</h4>
+<p class="text-gray-500 text-xs uppercase tracking-widest leading-loose">Av. Libertador 1250<br/>Buenos Aires, Argentina<br/>+54 11 4567-8900</p>
+<div class="w-full h-32 bg-surface-container-high rounded-xl overflow-hidden mt-4">
+<img class="w-full h-full object-cover opacity-50 grayscale" data-alt="Stylized map showing business location" data-location="Buenos Aires" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATidjDdgJzqEDEFUNcdNNAOSHozSKdmKtuwa2tlDad2luMUU-ddhoOhsxiR_t8eyApJo7l4gztjepqBV_LPq9ivKcvt1qwuK0F9nHEvFxP0mcx6QdTGd-NqeARF08z3QQYw0zy7Nbp0po53eGxskFhiHQdMTRrI0ZuDQ0drnXRe2rS30Ca9PF04VhHSB-k06JUaZFUjEOm49V92iIexhoNcp2c9eqHm9yR0dXDrxtdeScrGf0YtXoviZL4mS03sI56T1wrqPeC_CMj"/>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto border-t border-gray-200 dark:border-white/10 mt-12 pt-8 text-center">
+<p class="font-['Inter'] text-xs uppercase tracking-widest font-semibold text-gray-400">© 2024 Friends Hogar. Arquitectura del Descanso.</p>
+</div>
+</footer>
+</body></html>

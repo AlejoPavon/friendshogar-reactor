@@ -1,7 +1,7 @@
 "use client";
 
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 const PaymentMethodsSection = () => {
   const paymentMethods = [
@@ -32,7 +32,7 @@ const PaymentMethodsSection = () => {
     },
   ];
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -42,7 +42,7 @@ const PaymentMethodsSection = () => {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { 
       opacity: 0, 
       y: 20, 
@@ -56,48 +56,48 @@ const PaymentMethodsSection = () => {
       scale: 1,
       transition: {
         duration: 0.8,
-        ease: [0.22, 1, 0.36, 1], // Custom cubic-bezier for premium feel
+        ease: [0.22, 1, 0.36, 1],
       },
     },
   };
 
   return (
-    <section className="py-24 px-8 bg-surface-container-low">
+    <section className="py-20 md:py-32 px-4 md:px-8 bg-surface-container-low">
       <motion.div 
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={containerVariants}
-        className="max-w-6xl mx-auto bg-primary rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden shadow-2xl"
+        className="max-w-6xl mx-auto bg-primary rounded-[2.5rem] md:rounded-[3rem] p-10 md:p-20 text-center relative overflow-hidden shadow-2xl"
       >
         {/* Decorative element */}
-        <div className="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-white/10 rounded-full blur-[100px]"></div>
+        <div className="absolute top-0 right-0 -mt-20 -mr-20 w-64 md:w-80 h-64 md:h-80 bg-white/10 rounded-full blur-[80px] md:blur-[100px]"></div>
         
         <div className="relative z-10">
           <motion.h2 
             variants={itemVariants}
-            className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tighter"
+            className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter"
           >
             Medios de Pago
           </motion.h2>
           <motion.p 
             variants={itemVariants}
-            className="text-white/80 text-lg mb-16 max-w-xl mx-auto"
+            className="text-white/80 text-base md:text-lg mb-12 md:mb-16 max-w-xl mx-auto font-medium"
           >
             Aceptamos las principales tarjetas y plataformas del país para que tu compra sea simple y segura.
           </motion.p>
 
           <motion.div 
             variants={containerVariants}
-            className="grid grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8"
+            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-8"
           >
             {paymentMethods.map((method) => (
               <motion.div 
                 key={method.id}
                 variants={itemVariants}
-                className="bg-white/10 backdrop-blur-md rounded-[2rem] p-2 border border-white/20 flex flex-col items-center justify-center group hover:bg-white/20 transition-all duration-500 hover:scale-105"
+                className="bg-white/10 backdrop-blur-md rounded-[1.5rem] md:rounded-[2rem] p-1.5 md:p-2 border border-white/20 flex flex-col items-center justify-center group hover:bg-white/20 transition-all duration-500 hover:scale-105"
               >
-                <div className="w-full h-24 md:h-32 bg-white rounded-[1.5rem] flex items-center justify-center overflow-hidden shadow-xl p-6 md:p-8">
+                <div className="w-full h-20 md:h-32 bg-white rounded-[1rem] md:rounded-[1.5rem] flex items-center justify-center overflow-hidden shadow-xl p-4 md:p-8">
                   <div className="relative w-full h-full">
                     <Image 
                       src={method.image} 
@@ -112,10 +112,10 @@ const PaymentMethodsSection = () => {
             ))}
           </motion.div>
           
-          <div className="mt-12 flex items-center justify-center gap-2 text-white/40 text-[10px] uppercase tracking-[0.2em] font-bold">
-            <span className="w-8 h-[1px] bg-white/20"></span>
+          <div className="mt-12 flex items-center justify-center gap-2 text-white/40 text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold">
+            <span className="w-6 md:w-8 h-[1px] bg-white/20"></span>
             Transacciones Protegidas
-            <span className="w-8 h-[1px] bg-white/20"></span>
+            <span className="w-6 md:w-8 h-[1px] bg-white/20"></span>
           </div>
         </div>
       </motion.div>

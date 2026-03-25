@@ -2,68 +2,116 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { HiArrowRight } from 'react-icons/hi2';
+import Link from 'next/link';
 
 const Hero = () => {
   return (
-    <header className="relative h-[870px] w-full flex items-center overflow-hidden">
+    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-black">
+      {/* Cinematic Background */}
       <motion.div
-        initial={{ scale: 1.1, opacity: 0 }}
+        initial={{ scale: 1.2, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
         className="absolute inset-0 z-0"
       >
         <img
-          className="w-full h-full object-cover"
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDh6lGk8bkxdRylnRuTjl3AO5zj1DGoSBsYk2Zj9CZB6JSpEleG_KVeU6gC2bUUm-t6We5tj3nRTKhu4gOWOXR0arBeR8WhP_vDT4R2Re8refwWQCEU4R8jpfRZlmxtLMOVG_UK9ggnFZO3TlIXtKbGM7zjGlB3D4mo5aTTUcbTgFtpVV5fkGDbu_UwDl2J9itDHje3Nm4U4Wf1TLmrA8i7tt-4rmUwlJtbXPqLjDzA-SZ2_HyB1ZDxXTyCrcBK5zMIiUmvcGht2M80"
-          alt="Minimalist high-end master bedroom with blue accents"
+          className="w-full h-full object-cover opacity-80"
+          src="/images/images/background.png"
+          alt="Premium Bedroom Background"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-inverse-surface/60 to-transparent"></div>
+        {/* Dynamic Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-transparent"></div>
       </motion.div>
-      <div className="relative z-10 max-w-7xl mx-auto px-8 w-full">
-        <div className="max-w-2xl">
-          <motion.span
-            initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
-            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-            transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="text-primary-fixed-dim uppercase tracking-[0.3em] font-bold text-sm mb-4 block"
-          >
-            Arquitectura del Descanso
-          </motion.span>
-          <motion.h1
-            initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
-            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-            transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="text-white text-6xl md:text-8xl font-bold leading-[1.1] mb-8 tracking-tighter"
-          >
-            Eleva tu
-            <br />
-            Bienestar.
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
-            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-            transition={{ duration: 0.8, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="text-gray-200 text-xl mb-10 max-w-lg font-light leading-relaxed"
-          >
-            Descubre la precisión técnica y el confort editorial en nuestra nueva colección de
-            temporada.
-          </motion.p>
+
+      {/* Content Container */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 w-full flex flex-col items-start pt-20">
+        <div className="max-w-4xl">
           <motion.div
-            initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
-            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-            transition={{ duration: 0.8, delay: 1.1, ease: [0.22, 1, 0.36, 1] }}
-            className="flex gap-4"
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="flex items-center gap-4 mb-6"
           >
-            <button className="bg-primary text-white px-10 py-5 rounded-xl font-bold text-lg hover:shadow-[0px_20px_40px_rgba(0,90,183,0.3)] hover:-translate-y-1 transition-all duration-300">
-              Explorar Colección
+            <span className="h-[1px] w-12 bg-primary"></span>
+            <span className="text-primary uppercase tracking-[0.4em] font-black text-[10px] md:text-xs">
+              Colección Platinum 2026
+            </span>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 50, filter: 'blur(20px)' }}
+            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+            transition={{ duration: 1.2, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="text-white text-6xl sm:text-8xl md:text-[110px] font-black leading-[0.9] mb-8 tracking-[ -0.05em]"
+          >
+            SUEÑOS <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white/80 to-white/40">
+              SIN LÍMITES.
+            </span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1 }}
+            className="text-gray-300 text-lg md:text-2xl mb-12 max-w-xl font-medium leading-relaxed"
+          >
+            Redefinimos la arquitectura del descanso con precisión artesanal y materiales de vanguardia.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1.2 }}
+            className="flex flex-col sm:flex-row gap-6 p-2 md:p-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-[2rem] w-full sm:w-fit"
+          >
+            <button className="bg-primary text-white px-10 py-5 rounded-[1.5rem] font-black text-sm uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-500 flex items-center justify-center gap-3 group shadow-2xl shadow-primary/20">
+              Explorar Ahora
+              <HiArrowRight className="text-xl group-hover:translate-x-2 transition-transform duration-500" />
             </button>
-            <button className="bg-white/10 backdrop-blur-md text-white border border-white/20 px-10 py-5 rounded-xl font-bold text-lg hover:bg-white/20 transition-all duration-300">
+            <Link 
+              href="/pdf"
+              className="bg-white/10 backdrop-blur-md text-white border border-white/20 px-8 md:px-10 py-4 md:py-5 rounded-xl font-bold text-base md:text-lg hover:bg-white/20 transition-all duration-300 w-full sm:w-auto text-center"
+            >
               Ver Catálogo
-            </button>
+            </Link>
           </motion.div>
         </div>
       </div>
-    </header>
+
+      {/* Hero Stats/Features Floating */}
+      <motion.div 
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 1.5 }}
+        className="absolute bottom-12 right-6 md:right-12 hidden lg:flex gap-12 text-white"
+      >
+        <div className="flex flex-col">
+          <span className="text-4xl font-black">100%</span>
+          <span className="text-[10px] uppercase tracking-widest text-white/50 font-bold">Artesanal</span>
+        </div>
+        <div className="flex flex-col">
+          <span className="text-4xl font-black">10Y</span>
+          <span className="text-[10px] uppercase tracking-widest text-white/50 font-bold">Garantía</span>
+        </div>
+        <div className="flex flex-col">
+          <span className="text-4xl font-black">#01</span>
+          <span className="text-[10px] uppercase tracking-widest text-white/50 font-bold">En Argentina</span>
+        </div>
+      </motion.div>
+
+      {/* Mouse scroll indicator */}
+      <motion.div
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+      >
+        <div className="w-[1px] h-12 bg-gradient-to-b from-primary to-transparent"></div>
+        <span className="text-[10px] uppercase tracking-widest text-white/40 font-bold">Scroll</span>
+      </motion.div>
+    </section>
   );
 };
 

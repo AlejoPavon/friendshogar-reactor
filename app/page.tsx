@@ -1,6 +1,7 @@
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import Hero from '@/components/home/Hero';
+import EspaldaresSection from '@/components/home/EspaldaresSection';
 import HistorySection from '@/components/home/HistorySection';
 import TeamSection from '@/components/home/TeamSection';
 import PaymentMethodsSection from '@/components/home/PaymentMethodsSection';
@@ -28,10 +29,16 @@ export default function Home() {
           <HistorySection />
         </AnimationWrapper>
 
-        {/* The Leadership Team */}
+
+        {/* Espaldares Collection */}
+        <EspaldaresSection />
+
+        {/* The Leadership Team (Deactivated for now) */}
+        {/* 
         <AnimationWrapper delay={0.1}>
           <TeamSection />
         </AnimationWrapper>
+        */}
 
         {/* Payment Methods Section */}
         <AnimationWrapper>

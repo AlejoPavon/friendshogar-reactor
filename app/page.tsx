@@ -1,12 +1,11 @@
-import TopTicker from '@/components/layout/TopTicker';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import Hero from '@/components/home/Hero';
-import FeaturedProducts from '@/components/home/FeaturedProducts';
 import HistorySection from '@/components/home/HistorySection';
 import TeamSection from '@/components/home/TeamSection';
 import PaymentMethodsSection from '@/components/home/PaymentMethodsSection';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
+import AnimationWrapper from '@/components/ui/AnimationWrapper';
 
 export const metadata = {
   title: 'Friends Hogar | Arquitectura del Descanso',
@@ -16,9 +15,6 @@ export const metadata = {
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-background selection:bg-primary/20">
-      {/* Top Banner */}
-      <TopTicker />
-
       {/* Navigation */}
       <Navbar />
 
@@ -28,13 +24,19 @@ export default function Home() {
         <Hero />
 
         {/* Brand Story Section */}
-        <HistorySection />
+        <AnimationWrapper delay={0.2}>
+          <HistorySection />
+        </AnimationWrapper>
 
         {/* The Leadership Team */}
-        <TeamSection />
+        <AnimationWrapper delay={0.1}>
+          <TeamSection />
+        </AnimationWrapper>
 
         {/* Payment Methods Section */}
-        <PaymentMethodsSection />
+        <AnimationWrapper>
+          <PaymentMethodsSection />
+        </AnimationWrapper>
       </main>
 
       {/* Floating Actions */}

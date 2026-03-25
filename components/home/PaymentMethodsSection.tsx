@@ -1,6 +1,7 @@
 "use client";
 
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 const PaymentMethodsSection = () => {
   const paymentMethods = [
@@ -31,44 +32,85 @@ const PaymentMethodsSection = () => {
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 20, 
+      filter: "blur(10px)",
+      scale: 0.95 
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      filter: "blur(0px)",
+      scale: 1,
+      transition: {
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1], // Custom cubic-bezier for premium feel
+      },
+    },
+  };
+
   return (
     <section className="py-24 px-8 bg-surface-container-low">
-      <div className="max-w-6xl mx-auto bg-primary rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden shadow-2xl">
+      <motion.div 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={containerVariants}
+        className="max-w-6xl mx-auto bg-primary rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden shadow-2xl"
+      >
         {/* Decorative element */}
         <div className="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-white/10 rounded-full blur-[100px]"></div>
         
         <div className="relative z-10">
-          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tighter">
+          <motion.h2 
+            variants={itemVariants}
+            className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tighter"
+          >
             Medios de Pago
-          </h2>
-          <p className="text-white/80 text-lg mb-16 max-w-xl mx-auto">
+          </motion.h2>
+          <motion.p 
+            variants={itemVariants}
+            className="text-white/80 text-lg mb-16 max-w-xl mx-auto"
+          >
             Aceptamos las principales tarjetas y plataformas del país para que tu compra sea simple y segura.
-          </p>
+          </motion.p>
 
-          <div className="grid grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8">
+          <motion.div 
+            variants={containerVariants}
+            className="grid grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8"
+          >
             {paymentMethods.map((method) => (
-              <div 
+              <motion.div 
                 key={method.id}
+                variants={itemVariants}
                 className="bg-white/10 backdrop-blur-md rounded-[2rem] p-2 border border-white/20 flex flex-col items-center justify-center group hover:bg-white/20 transition-all duration-500 hover:scale-105"
               >
                 <div className="w-full h-24 md:h-32 bg-white rounded-[1.5rem] flex items-center justify-center overflow-hidden shadow-xl p-6 md:p-8">
-                  {method.image ? (
-                    <div className="relative w-full h-full">
-                      <Image 
-                        src={method.image} 
-                        alt={method.name}
-                        fill
-                        className="object-contain"
-                        priority
-                      />
-                    </div>
-                  ) : (
-                    <div className="w-8 h-8 border-2 border-primary/20 border-dashed rounded-full animate-pulse"></div>
-                  )}
+                  <div className="relative w-full h-full">
+                    <Image 
+                      src={method.image} 
+                      alt={method.name}
+                      fill
+                      className="object-contain"
+                      priority
+                    />
+                  </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
           
           <div className="mt-12 flex items-center justify-center gap-2 text-white/40 text-[10px] uppercase tracking-[0.2em] font-bold">
             <span className="w-8 h-[1px] bg-white/20"></span>
@@ -76,7 +118,7 @@ const PaymentMethodsSection = () => {
             <span className="w-8 h-[1px] bg-white/20"></span>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

@@ -1,5 +1,8 @@
+'use client';
+
 import React from 'react';
 import TeamMemberCard from '@/components/ui/TeamMemberCard';
+import { motion, Variants } from 'framer-motion';
 
 const TeamSection = () => {
   const members = [
@@ -20,21 +23,58 @@ const TeamSection = () => {
     },
   ];
 
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 20, filter: 'blur(10px)' },
+    visible: {
+      opacity: 1,
+      y: 0,
+      filter: 'blur(0px)',
+      transition: {
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-8">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl font-bold text-on-background tracking-tight">El Equipo</h2>
-          <p className="text-secondary mt-4 max-w-xl mx-auto">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+          variants={containerVariants}
+          className="text-center mb-20"
+        >
+          <motion.h2 variants={itemVariants} className="text-4xl font-bold text-on-background tracking-tight">El Equipo</motion.h2>
+          <motion.p variants={itemVariants} className="text-secondary mt-4 max-w-xl mx-auto">
             Los arquitectos detrás de tu próximo descanso perfecto. Directores comprometidos con la
             excelencia operativa.
-          </p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          </motion.p>
+        </motion.div>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+          variants={containerVariants}
+          className="grid grid-cols-1 md:grid-cols-3 gap-12"
+        >
           {members.map((member, index) => (
-            <TeamMemberCard key={index} {...member} />
+            <motion.div key={index} variants={itemVariants}>
+              <TeamMemberCard {...member} />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

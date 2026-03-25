@@ -1,9 +1,17 @@
+'use client';
+
 import React from 'react';
 import { HiMagnifyingGlass, HiOutlineShoppingCart, HiOutlineUser } from 'react-icons/hi2';
+import { motion } from 'framer-motion';
 
 const Navbar = () => {
   return (
-    <nav className="bg-inverse-surface/80 backdrop-blur-xl border-b border-white/10 shadow-2xl sticky top-0 z-50 flex justify-between items-center px-8 py-4 max-w-full">
+    <motion.nav
+      initial={{ y: -20, opacity: 0, filter: 'blur(10px)' }}
+      animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      className="bg-inverse-surface/80 backdrop-blur-xl border-b border-white/10 shadow-2xl sticky top-0 z-50 flex justify-between items-center px-8 py-4 max-w-full"
+    >
       <div className="flex items-center gap-12">
         <span className="text-2xl font-bold tracking-tighter text-white">Friends Hogar</span>
         <div className="hidden md:flex items-center gap-8">
@@ -57,7 +65,7 @@ const Navbar = () => {
           </button>
         </div>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 

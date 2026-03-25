@@ -18,7 +18,6 @@ const FeaturedProducts = () => {
       wholesalePrice: "$142.000",
       imageUrl: "https://lh3.googleusercontent.com/aida-public/AB6AXuCXzppmmD4i7SrnMFO56Wf8KchXQ3HLw_1U2meLN42CSElFhj3VyFhucgHDgLLQWTQemBAl0wt0adxSo_pA2SKkA8q9KyKk3HtA6G3zp7sorcM5W5jy3j4kGmoIupDvQchoTg_79rpFFhJgrJSHz8127shk10adRse-F1s4mFLYtJThv7G5N2mFk4rTuPD8dM4AOai5r78YQWqC1r1u0N_6EgXtfJ3KJwHbjLll5ij8PUdeu-g9LFOjfEgvFU8gq-cQPMQQX5rsmgu-",
       rating: 5,
-      tag: "MÁS VENDIDO",
       specs: [
         { icon: <RiWeightLine />, text: "Soporta hasta 140kg" },
         { icon: <RiLayoutGridLine />, text: "Resortes Pocket" },

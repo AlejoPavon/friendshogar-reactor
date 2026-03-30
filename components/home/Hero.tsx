@@ -28,17 +28,7 @@ const Hero = () => {
       {/* Content Container */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 w-full flex flex-col items-start pt-20">
         <div className="max-w-4xl">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            className="flex items-center gap-4 mb-6"
-          >
-            <span className="h-[1px] w-12 bg-primary"></span>
-            <span className="text-primary uppercase tracking-[0.4em] font-black text-[10px] md:text-xs">
-              Colección Platinum 2026
-            </span>
-          </motion.div>
+
 
           <motion.h1
             initial={{ opacity: 0, y: 50, filter: 'blur(20px)' }}

@@ -9,6 +9,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navLinks = [
+    { name: 'Catálogo', href: '/catalogo' },
     { name: 'Colchones', href: '#' },
     { name: 'Sommiers', href: '#' },
     { name: 'Almohadas', href: '#' },
@@ -46,17 +47,31 @@ const Navbar = () => {
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-6 lg:gap-8">
             {navLinks.map((link, i) => (
-              <a
-                key={link.name}
-                className={`${
-                  i === 0 
-                  ? "text-primary-container border-b-2 border-primary-container pb-1" 
-                  : "text-gray-300 hover:text-white"
-                } font-semibold transition-all duration-300 whitespace-nowrap text-sm lg:text-base`}
-                href={link.href}
-              >
-                {link.name}
-              </a>
+              link.href.startsWith('/') ? (
+                <Link
+                  key={link.name}
+                  className={`${
+                    i === 0 
+                    ? "text-primary-container border-b-2 border-primary-container pb-1" 
+                    : "text-gray-300 hover:text-white"
+                  } font-semibold transition-all duration-300 whitespace-nowrap text-sm lg:text-base`}
+                  href={link.href}
+                >
+                  {link.name}
+                </Link>
+              ) : (
+                <a
+                  key={link.name}
+                  className={`${
+                    i === 0 
+                    ? "text-primary-container border-b-2 border-primary-container pb-1" 
+                    : "text-gray-300 hover:text-white"
+                  } font-semibold transition-all duration-300 whitespace-nowrap text-sm lg:text-base`}
+                  href={link.href}
+                >
+                  {link.name}
+                </a>
+              )
             ))}
           </div>
         </div>

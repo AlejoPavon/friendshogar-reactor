@@ -17,7 +17,7 @@ const HistorySection = () => {
           <div className="aspect-[4/5] sm:aspect-video lg:aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
             <img
               className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDh92O0o3P1_9oCrxr3Cci0tFmOdAQosFWOorj0oQvVaBXx_zLLuMZz6jQV_skqeJK2KaZc2eoW4TVlEqNx02QuxpnUbWstQcNRnk1L0piopvAorqtZ2fPPFDBDcPVG9-E5ojNPFP05TdVcrMkIt7KOKC03ka2vlw3v9ohHsjbOOU152NbU5ebExVbVovm_jvzX5RwVvD8PunGba0kMJd8il8w37S7MwdrKxYJYLnL5culWoySsoT4rSBAAlqpV4y3rrdU5TK66xaez"
+              src="/images/images/about.png"
               alt="Black and white architectural furniture design detail"
             />
           </div>
@@ -31,9 +31,7 @@ const HistorySection = () => {
           transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="order-1 lg:order-2"
         >
-          <span className="text-primary tracking-[0.2em] md:tracking-[0.3em] uppercase font-bold text-xs md:text-sm mb-4 block text-center lg:text-left">
-            Desde 1998
-          </span>
+
           <h2 className="text-4xl md:text-6xl font-bold mb-6 md:mb-8 tracking-tighter text-center lg:text-left">
             Nuestra Historia
           </h2>

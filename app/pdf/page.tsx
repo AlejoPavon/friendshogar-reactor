@@ -107,7 +107,7 @@ const CatalogoPage = () => {
           </div>
           <div className="text-right">
             <p className="text-xs font-bold text-primary uppercase tracking-[0.3em] mb-2">Arquitectura del Descanso</p>
-            <p className="text-sm text-gray-500">Av. Libertador 1250 <br/> Buenos Aires, Argentina <br/> +54 11 4567-8900</p>
+            <p className="text-sm text-gray-500"></p>
           </div>
         </div>
 
